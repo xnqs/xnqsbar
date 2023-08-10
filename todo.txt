@@ -1,0 +1,4 @@
+- remove system() and usleep() unistd.h calls
+- better modularity 
+- give it a proper build system (cmake maybe?)
+- mayyybe bsd support? (no one uses that though (jkjk))
