@@ -2,3 +2,4 @@
 - better modularity 
 - give it a proper build system (cmake maybe?)
 - mayyybe bsd support? (no one uses that though (jkjk))
+- because the main loop takes slightly more than a millisecond to complete, and usleep is called for 1000 milliseconds, the clock might occasionally skip a second
