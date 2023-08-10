@@ -66,6 +66,7 @@ int main(int argc, char** argv) {
 
 	int enum_order_size = sizeof(enum_order)/sizeof(enum_order[0]);
 	while (1) {
+		auto time_start = std::chrono::high_resolution_clock::now();
 		char info[6][71];
 		for (int i = 0; i < enum_order_size; i++) {
 			int msb = xnqs::msb(enum_order[i]);
@@ -92,7 +93,10 @@ int main(int argc, char** argv) {
 		strcat(cmd,"\"");
 		system(cmd);
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(DELAY));
+		auto time_end = std::chrono::high_resolution_clock::now();
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(DELAY-std::chrono::duration_cast<std::chrono::milliseconds>(time_end-time_start).count()));
+		//std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(time_end-time_start).count() << "\n";
 	}
 
 	return 0;
