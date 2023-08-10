@@ -92,7 +92,7 @@ int main(int argc, char** argv) {
 		strcat(cmd,"\"");
 		system(cmd);
 
-		usleep(DELAY);
+		std::this_thread::sleep_for(std::chrono::milliseconds(DELAY));
 	}
 
 	return 0;
