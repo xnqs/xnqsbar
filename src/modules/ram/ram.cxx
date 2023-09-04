@@ -1,7 +1,7 @@
 #include <cstdio>
 
-namespace xnqs {
-void get_ram(char* dest) {
+extern "C" {
+void get_info(char* dest) {
 	dest[0] = 0;
 	FILE* fp = fopen("/proc/meminfo","r");
 	if (!fp) {
@@ -32,10 +32,4 @@ void get_ram(char* dest) {
 
 	fclose(fp);
 }
-} // namespace xnqs
-
-/*int main() {
-	char str[256] = {0};
-	xnqs::get_ram(str);
-	printf("%s\n",str);
-}*/
+}

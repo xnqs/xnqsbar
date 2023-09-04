@@ -6,8 +6,8 @@
 // total jiffies are the total cpu usage across the board, including stuff like iowait, idle time, irq etc.
 // work jiffies include only system, user and nice cpu usage.
 
-namespace xnqs {
-void get_cpu(char* dest) {
+extern "C" {
+void get_info(char* dest) {
 	static int last_total_jiffies = 0;
 	static int last_work_jiffies  = 0;
 	int        curr_total_jiffies = 0;
@@ -66,16 +66,4 @@ void get_cpu(char* dest) {
 	last_total_jiffies = curr_total_jiffies;
 	last_work_jiffies  = curr_work_jiffies;
 }
-} // namespace xnqs
-
-// ignore this i tested it
-
-/*int main() {
-	char str[256] = {0};
-
-	while (1) {
-		xnqs::get_cpu(str);
-		printf("%s\n",str);
-		//usleep(10000000);
-	}
-}*/
+}

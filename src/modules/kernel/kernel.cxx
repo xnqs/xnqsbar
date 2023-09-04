@@ -3,8 +3,8 @@
 
 // we will be getting the kernel version from the file /proc/version. nothing else to really add here.
 
-namespace xnqs {
-void get_kernel(char* dest) {
+extern "C" {
+void get_info(char* dest) {
 	dest[0] = 0;
 	FILE* fp = fopen("/proc/version","r");
 	if (!fp) {
@@ -29,10 +29,4 @@ void get_kernel(char* dest) {
 
 	fclose(fp);
 }
-} // namespace xnqs
-
-/*int main() {
-	char str[256] = {0};
-	xnqs::get_kernel(str);
-	printf("%s\n",str);
-}*/
+}

@@ -1,7 +1,7 @@
 #include <cstdio>
 
-namespace xnqs {
-void get_swap(char* dest) {
+extern "C" {
+void get_info(char* dest) {
 	dest[0] = 0;
 
 	FILE* fp = fopen("/proc/meminfo","r");
@@ -21,10 +21,4 @@ void get_swap(char* dest) {
 
 	fclose(fp);
 }
-} // namespace xnqs
-
-/*int main() {
-	char str[256] = {0};
-	xnqs::get_swap(str);
-	printf("%s\n",str);
-}*/
+}
