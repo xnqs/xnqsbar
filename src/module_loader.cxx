@@ -7,7 +7,7 @@
 #include <functional>
 
 namespace xnqs {
-int load_modules(std::map<std::string,std::function<void(char*)>>& func_map, std::vector<void*>& dlhs) {
+int load_modules(std::map<std::string,std::function<void(char*)>>& func_map) {
 	char* linux_username = getlogin();
 	
 	std::filesystem::path config_dir(std::string("/home/") + linux_username + "/.config/xnqsbar");
@@ -35,7 +35,6 @@ int load_modules(std::map<std::string,std::function<void(char*)>>& func_map, std
 
 		++module_name;
 		func_map[module_name] = reinterpret_cast<func_type*>(func_ptr);
-		dlhs.emplace_back(dlh);
 	}
 
 	return 0;

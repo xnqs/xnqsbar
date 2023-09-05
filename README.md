@@ -22,7 +22,7 @@ g++ -fPIC -O2 -c src/modules/cpu/cpu.cxx -o src/modules/cpu/cpu.o
 g++ -shared src/modules/cpu/cpu.o -o src/modules/cpu/cpu
 ```
 ### Using modules
-You simply move its shared library file into `~/.config/xnqsbar/modules/`.
+You simply move its shared library file into `~/.config/xnqsbar/modules/`. Every time you change something in this folder you will have to restart xnqsbar to apply the changes.
 
 ### Changing order in which modules are displayed
 Let's say you have modules `cpu`, `ram` and `swap` in `~/.config/xnqsbar/modules/`. xnqsbar will display `cpu`, `ram` and `swap` in alphabetical/lexicographical order.
