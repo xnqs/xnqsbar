@@ -37,6 +37,11 @@ int main(int argc, char** argv) {
 				strcat(final_status_msg," | ");
 			}
 		}
+
+		// the function map is empty -> no modules are in ~/.config/xnqsbar/modules
+		if (!map.size()) {
+			strcpy(final_status_msg,"xnqsbar - no modules loaded");
+		}
 		
 		char cmd[300] = "xprop -root -set WM_NAME \"";
 		strcat(cmd,final_status_msg);
