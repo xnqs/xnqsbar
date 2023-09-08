@@ -21,6 +21,10 @@ int load_modules(std::map<std::string,std::function<void(char*)>>& func_map) {
 	std::filesystem::path modules_dir(config_dir/"modules");
 	std::filesystem::directory_iterator modules_dir_it(modules_dir);
 	for (auto& file : modules_dir_it) {
+		if (!std::filesystem::is_regular_file(file.path())) {
+			continue;
+		}
+
 		void* dlh = dlopen(file.path().c_str(),RTLD_NOW);
 		if (!dlh) {
 			std::cerr << "Failed to open module " << file.path() << "\n";

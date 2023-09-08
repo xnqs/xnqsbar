@@ -2,6 +2,10 @@
 xnqsbar is a configurable, lightweight and ultra-modular status bar for dwm written in C++.
 ![image preview](https://i.imgur.com/rYbpYAK.png)
 
+# Dependencies
+* `otf-font-awesome` - icons
+* `xorg-xprop` - set WM_NAME to the status message
+
 # Building
 You can easily build xnqsbar by compiling main.cxx and module_loader.cxx together.
 
