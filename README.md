@@ -6,12 +6,16 @@ xnqsbar is a configurable, lightweight and ultra-modular status bar for dwm writ
 * `otf-font-awesome` - icons
 * `xorg-xprop` - set WM_NAME to the status message
 
-# Building
-You can easily build xnqsbar by compiling main.cxx and module_loader.cxx together.
+# Building and installing
+```
+mkdir build && cd build
+cmake ..
+make
+sudo make install
+```
 
-Example for GCC:
-
-`g++ src/main.cxx src/module_loader.cxx -o main -O2`
+By default, this will install xnqsbar in /usr/local/bin. If you want to install it in another prefix, run cmake with `-DCMAKE_INSTALL_PREFIX=/your/desired/path`. 
+This will now install it in ${CMAKE_INSTALL_PREFIX}/bin.
 
 # Modules
 xnqsbar is built on modules and by default it will have none. For example, you can have a module for CPU usage, a module for RAM usage, a module for date, a module for time etc.
