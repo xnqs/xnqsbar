@@ -6,7 +6,6 @@
 #include <vector>
 #include <map>
 #include <filesystem>
-#include <unistd.h>
 #include <functional>
 
 #include "config.hxx"
@@ -43,11 +42,7 @@ int main(int argc, char** argv) {
 			strcpy(final_status_msg,"xnqsbar - no modules loaded");
 		}
 		
-		char cmd[300] = "xprop -root -set WM_NAME \"";
-		strcat(cmd,final_status_msg);
-		strcat(cmd,"\"");
-		system(cmd);
-
+		xnqs::set_wm_name(final_status_msg);
 		auto time_end = std::chrono::high_resolution_clock::now();
 
 		//std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(time_end-time_start).count() << "\n";

@@ -1,3 +1,1 @@
-- remove system() and usleep() unistd.h calls
-- mayyybe bsd support? (no one uses that though (jkjk))
 - add config support and way to order the selected modules among other things
